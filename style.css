@@ -15,10 +15,139 @@ body {
 .header {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #fff;
   width: 100vw;
   z-index: 5;
+  display: none;
+}
+
+.mobile-nav {
+  display: block;
+}
+
+.nav-checkbox {
+  display: none;
+}
+
+.nav-cont {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 220;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-bck {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.924);
+  z-index: 200;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.87, 1);
+}
+
+.nav-icon,
+.nav-icon::before,
+.nav-icon::after {
+  width: 1.8rem;
+  height: 2px;
+  background-color: #000;
+  display: inline-block;
+}
+
+.nav-icon {
+  position: relative;
+  margin-top: 1.8rem;
+}
+
+.nav-checkbox:checked + .nav-btn .nav-icon {
+  background-color: transparent;
+}
+
+.nav-checkbox:checked ~ .nav-bck {
+  transform: scale(100);
+}
+
+.nav-checkbox:checked ~ .nav-cont {
+  opacity: 1;
+  width: 100%;
+}
+
+.nav-icon::before,
+.nav-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.nav-icon::before {
+  top: -0.5rem;
+}
+
+.nav-icon::after {
+  top: 0.5rem;
+}
+
+.nav-btn:hover .nav-icon::before {
+  top: -0.6rem;
+}
+
+.nav-btn:hover .nav-icon::after {
+  top: 0.6rem;
+}
+
+.nav-checkbox:checked + .nav-btn .nav-icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.nav-checkbox:checked + .nav-btn .nav-icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+.nav-btn {
+  background-color: #fff;
+  height: 4rem;
+  width: 4rem;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 250;
+  border-radius: 50%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.068);
+  text-align: center;
+  cursor: pointer;
+}
+
+.mob-cont-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+.mob-single-link {
+  margin: 1rem;
+}
+
+.mob-link {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .cont-navbar {
@@ -48,11 +177,11 @@ body {
   margin-right: 1rem;
 }
 
-.about-loc,
-.about-date,
-.about-desc,
+.about-sal,
 .about-title,
-.about-sal {
+.about-desc,
+.about-contact,
+.about-contact-link {
   text-align: center;
 }
 
@@ -107,7 +236,7 @@ body {
 .header-cont {
   background-image: url(./images/river.jpg);
   background-position: center;
-  padding: 8rem 0;
+  padding: 5rem 0;
 }
 
 .intro {
@@ -143,17 +272,35 @@ body {
   font-size: 1.5rem;
 }
 
+.about-contact {
+  color: #fff;
+  font-weight: 700;
+}
+
+.about-contact-link {
+  text-decoration: none;
+  color: #fff;
+}
+
 .intro-location {
   color: rgb(253, 166, 26);
   font-weight: 600;
   font-size: 1.3rem;
 }
 
+.partners-cont > * {
+  margin: 1rem 1rem;
+}
+
+.intro-about > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
 .main {
   padding: 1rem;
-  background-color: #000;
   opacity: 0.9;
-  background: radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent), radial-gradient( circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#171717 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #171717 2px, #000 2px) -1px 0;
+  background: radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000 20%, #000 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#171717 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #171717 2px, #000 2px) -1px 0;
+  background-color: #000;
   background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
   background-repeat: repeat;
 }
@@ -186,6 +333,7 @@ body {
   color: rgb(255, 179, 0);
   font-size: 1rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .main-title {
@@ -200,7 +348,7 @@ body {
   content: "";
   width: 50%;
   height: 2px;
-  background-color: rgb(243, 69, 17);
+  background-color: rgb(221, 23, 23);
   position: absolute;
   right: 25%;
   bottom: -1rem;
@@ -220,7 +368,7 @@ body {
 }
 
 .btn-action-reg {
-  background-color: rgb(243, 69, 17);
+  background-color: rgb(221, 23, 23);
   padding: 1rem;
   color: #fff;
   font-size: 1.1rem;
@@ -228,6 +376,8 @@ body {
   text-decoration: none;
   cursor: pointer;
   margin: 1.5rem 0;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .guest-title {
@@ -285,14 +435,14 @@ body {
   margin-left: 0.8rem;
 }
 
-.info-cont > *:not(:last-child) {
-  margin-bottom: 0.3rem;
+.info-cont > *:not(:first-child) {
+  margin-bottom: 1rem;
 }
 
 .img-bck {
   background-color: #e5e5f7;
   opacity: 0.8;
-  background-image: repeating-linear-gradient( 45deg, #646464 25%, transparent 25%, transparent 75%, #646464 75%, #646464), repeating-linear-gradient( 45deg, #646464 25%, #e5e5f7 25%, #e5e5f7 75%, #646464 75%, #646464);
+  background-image: repeating-linear-gradient(45deg, #646464 25%, transparent 25%, transparent 75%, #646464 75%, #646464), repeating-linear-gradient(45deg, #646464 25%, #e5e5f7 25%, #e5e5f7 75%, #646464 75%, #646464);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
   width: 5rem;
@@ -319,6 +469,18 @@ body {
 
 .job-speaker {
   font-weight: 500;
+  color: rgb(221, 23, 23);
+  position: relative;
+}
+
+.job-speaker::after {
+  content: "";
+  width: 15%;
+  height: 2px;
+  background-color: rgb(221, 23, 23);
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
 }
 
 .info-speaker {
@@ -342,10 +504,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.partners-cont>* {
-  margin: 1rem 1rem;
 }
 
 .partner-heading {
@@ -413,7 +571,13 @@ body {
 
 .footer {
   background-color: rgb(226, 225, 225);
-  padding: 2rem 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.copyright-owner {
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .cont-elm-footer {
@@ -426,7 +590,7 @@ body {
   text-align: center;
 }
 
-.footer-text-cont>*:not(:last-child) {
+.footer-text-cont > *:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
@@ -472,7 +636,7 @@ body {
 }
 
 .logo-info-cont {
-  width: 50%;
+  width: 90%;
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
@@ -480,8 +644,8 @@ body {
 }
 
 .about-logo {
-  width: 20rem !important;
   padding: 1rem 3rem;
+  margin: 0 auto;
   border: 1px solid rgba(0, 0, 0, 0.24);
 }
 
@@ -489,12 +653,13 @@ body {
   text-align: center;
 }
 
-.logo-info-cont>*:not(:last-child) {
+.logo-info-cont > *:not(:last-child) {
   margin-bottom: 2.5rem;
 }
 
 .logo-title {
   color: #000 !important;
+  text-align: center !important;
 }
 
 .cont-history {
@@ -507,16 +672,18 @@ body {
 
 .history-title {
   color: #000;
+  text-align: center;
 }
 
 .cont-img-history {
-  width: 90%;
+  width: 100%;
   margin: 2rem auto;
   display: flex;
+  flex-direction: column;
 }
 
 .history-img-cont {
-  width: 45%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -525,6 +692,18 @@ body {
   width: 100%;
   margin: 0 auto;
   display: block;
+}
+
+.img-text {
+  font-weight: 600;
+}
+
+.heading-date {
+  font-weight: 800;
+}
+
+.heading {
+  display: none;
 }
 
 .text-history {
@@ -541,6 +720,10 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.separator {
+  visibility: hidden;
+}
+
 .hist-text-wrapper {
   display: flex;
   flex-direction: column;
@@ -551,6 +734,14 @@ body {
 }
 
 @media (min-width: 768px) {
+  .header {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
   .speakers-cont {
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -558,11 +749,13 @@ body {
     margin: 0 auto;
     grid-row-gap: 3rem;
   }
+
   .speaker-cont {
     display: flex;
     height: max-content;
     width: 80%;
   }
+
   .activity-cont {
     list-style: none;
     margin: 0 2rem;
@@ -570,19 +763,50 @@ body {
     display: flex;
     flex-direction: row;
   }
+
   .activity-prog-cont {
     flex-direction: column;
   }
-  .activity-cont>*:not(:last-child) {
+
+  .activity-cont > *:not(:last-child) {
     margin-right: 0.5rem;
   }
+
   .activity-prog-text {
     text-align: center;
   }
+
   .intro {
     width: 70%;
     margin: 3rem auto;
     display: flex;
     flex-direction: column;
+  }
+
+  .logo-info-cont {
+    width: 50% !important;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cont-img-history {
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .history-img-cont {
+    width: 45%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .summit-history-img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
   }
 }
