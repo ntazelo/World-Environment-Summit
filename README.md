@@ -8,6 +8,10 @@ Hi Everyone! I'm Ntazama Eloi and this a fictional Environment website.
 - CSS
 - Javascript
 
+# Live Demo
+
+This the link to the website [Live Demo Link](https://ntazelo.github.io/World-Environment-Summit)
+
 # Getting Started
 
 If you're new to GitHub and just want to download my portfolio, press the green button saying "Code", and then choose the "Download ZIP" option or clone it locally using this command : **git clone https://github.com/ntazelo/World-Environment-Summit.git**
