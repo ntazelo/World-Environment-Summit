@@ -256,21 +256,21 @@ body {
 }
 
 .intro-salutation {
-  color: rgb(255, 204, 0);
+  color: rgb(231, 69, 47);
   font-size: 1.7rem;
   line-height: 1.3rem;
   font-weight: 400;
 }
 
 .intro-title {
-  color: rgb(255, 204, 0);
+  color: rgb(231, 69, 47);
   font-weight: 800;
   font-size: 2.8rem;
 }
 
 .intro-desc {
-  background-color: rgba(155, 113, 57, 0.822);
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 1rem;
   border-radius: 5px;
   font-size: 0.9rem;
@@ -278,25 +278,25 @@ body {
 }
 
 .intro-date {
-  color: #fda61a;
+  color: #181818;
   font-weight: 800;
   font-size: 1.7rem;
 }
 
 .about-contact {
-  color: #fff;
+  color: rgb(32, 32, 32);
   font-weight: 800;
   font-size: 0.9rem;
 }
 
 .about-contact-link {
-  color: #fff;
+  color: #000;
   font-weight: 800;
   font-size: 0.9rem;
 }
 
 .intro-location {
-  color: rgb(253, 166, 26);
+  color: #000;
   font-weight: 500;
   font-size: 1.3rem;
 }
