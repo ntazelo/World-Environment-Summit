@@ -72,7 +72,11 @@ body {
 }
 
 .nav-checkbox:checked ~ .nav-bck {
-  transform: scale(100);
+  border-radius: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
 
 .nav-checkbox:checked ~ .nav-cont {
@@ -118,7 +122,7 @@ body {
   background-color: #fff;
   height: 4rem;
   width: 4rem;
-  position: fixed;
+  position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 250;
@@ -157,7 +161,7 @@ body {
 
 .navbar-wrapper {
   display: flex;
-  width: 78%;
+  width: 90%;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
@@ -174,7 +178,7 @@ body {
 }
 
 .cont-list > * {
-  margin-right: 1rem;
+  margin: 0.5rem 1rem;
 }
 
 .about-sal,
@@ -248,7 +252,7 @@ body {
 
 .intro-salutation {
   color: rgb(255, 204, 0);
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   line-height: 1.3rem;
   font-weight: 400;
 }
@@ -256,7 +260,7 @@ body {
 .intro-title {
   color: rgb(255, 204, 0);
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
 }
 
 .intro-desc {
@@ -264,27 +268,31 @@ body {
   color: #fff;
   padding: 1rem;
   border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .intro-date {
   color: #fda61a;
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .about-contact {
   color: #fff;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 0.9rem;
 }
 
 .about-contact-link {
-  text-decoration: none;
   color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
 }
 
 .intro-location {
   color: rgb(253, 166, 26);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.3rem;
 }
 
@@ -327,13 +335,34 @@ body {
   align-items: center;
   margin: 1rem auto;
   border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .activity-prog-title {
-  color: rgb(255, 179, 0);
-  font-size: 1rem;
+  color: rgb(204, 0, 0);
+  font-size: 1.1rem;
   font-weight: 800;
   text-align: center;
+  margin: 0 auto;
+  min-width: 55%;
+}
+
+.text-prog {
+  display: flex;
+  min-width: 65%;
+}
+
+.heading-icon {
+  display: flex;
+  align-items: center;
+  min-width: 35%;
+  justify-content: space-between;
+  overflow-wrap: break-word;
+  width: 35%;
+}
+
+.heading-icon i {
+  min-width: 45%;
 }
 
 .main-title {
@@ -354,13 +383,8 @@ body {
   bottom: -1rem;
 }
 
-.activity-prog {
-  margin: 0.5rem;
-}
-
 .activity-prog-text {
   color: white;
-  font-weight: 500;
 }
 
 .activity-prog i {
@@ -378,6 +402,15 @@ body {
   margin: 1.5rem 0;
   text-align: center;
   border-radius: 5px;
+}
+
+.btn-action-reg-desk {
+  display: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  margin: 1.5rem 0;
 }
 
 .guest-title {
@@ -573,6 +606,7 @@ body {
   background-color: rgb(226, 225, 225);
   padding-top: 1.5rem;
   padding-bottom: 1rem;
+  width: 100%;
 }
 
 .copyright-owner {
@@ -582,12 +616,13 @@ body {
 
 .cont-elm-footer {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .footer-text-cont {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-text-cont > *:not(:last-child) {
@@ -600,12 +635,13 @@ body {
 }
 
 .logo-footer {
-  width: 10rem;
+  width: 7rem;
 }
 
 .website-name {
-  margin-left: -2rem;
+  margin-left: -1rem;
   color: rgb(48, 197, 48);
+  font-size: 0.9rem;
 }
 
 .logo-text {
@@ -644,9 +680,25 @@ body {
 }
 
 .about-logo {
-  padding: 1rem 3rem;
+  padding: 1rem 0;
   margin: 0 auto;
-  border: 1px solid rgba(0, 0, 0, 0.24);
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+}
+
+.logo-text-about {
+  margin-left: -1.3rem;
+  width: 50%;
+}
+
+.website-name-about {
+  color: green;
+}
+
+.logo-about-img {
+  width: 50%;
 }
 
 .text-logo {
@@ -762,10 +814,22 @@ body {
     width: 80%;
     display: flex;
     flex-direction: row;
+    height: max-content;
+    align-items: stretch;
+  }
+
+  .heading-icon {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heading-icon i {
+    text-align: center;
   }
 
   .activity-prog-cont {
     flex-direction: column;
+    align-items: center;
   }
 
   .activity-cont > *:not(:last-child) {
@@ -774,6 +838,18 @@ body {
 
   .activity-prog-text {
     text-align: center;
+  }
+
+  .btn-action-reg {
+    display: none;
+  }
+
+  .btn-action-reg-desk {
+    display: block;
+  }
+
+  .activity-prog-title {
+    width: 100%;
   }
 
   .intro {
@@ -802,6 +878,10 @@ body {
     width: 45%;
     margin: 0 auto;
     position: relative;
+  }
+
+  .footer-about {
+    display: none;
   }
 
   .summit-history-img {
