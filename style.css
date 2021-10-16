@@ -38,19 +38,19 @@ body {
   z-index: 220;
   opacity: 0;
   width: 0;
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s;
 }
 
 .nav-bck {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   top: 1.5rem;
   left: 1.5rem;
   background-color: rgba(0, 0, 0, 0.924);
   z-index: 200;
-  transition: transform 0.8s cubic-bezier(0.86, 0, 0.87, 1);
+  transition: all 0.4s;
 }
 
 .nav-icon,
@@ -75,8 +75,27 @@ body {
   border-radius: 0;
   width: 100vw;
   height: 100vh;
+  position: fixed;
   top: 0;
   left: 0;
+}
+
+.nav-btn {
+  background-color: #fff;
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 250;
+  border-radius: 50%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.068);
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav-checkbox:checked + .nav-btn {
+  position: fixed;
 }
 
 .nav-checkbox:checked ~ .nav-cont {
@@ -116,20 +135,6 @@ body {
 .nav-checkbox:checked + .nav-btn .nav-icon::after {
   top: 0;
   transform: rotate(-135deg);
-}
-
-.nav-btn {
-  background-color: #fff;
-  height: 4rem;
-  width: 4rem;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 250;
-  border-radius: 50%;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.068);
-  text-align: center;
-  cursor: pointer;
 }
 
 .mob-cont-link {
