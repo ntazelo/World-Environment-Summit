@@ -1,0 +1,19 @@
+{
+  "name": "world-environment-summit",
+  "version": "1.0.0",
+  "description": "website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntazelo/World-Environment-Summit.git"
+  },
+  "author": "Ntazama Eloi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntazelo/World-Environment-Summit/issues"
+  },
+  "homepage": "https://github.com/ntazelo/World-Environment-Summit#readme"
+}
